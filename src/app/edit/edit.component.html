@@ -1,0 +1,50 @@
+<div class="container">
+  <h4 class="text-center mt-5">Editer l'evenement {{ event.titre }}</h4>
+  <div class="col-md-8 mr-auto ml-auto">
+    <form class="mt-5" #formEvent="ngForm" (ngSubmit)="editEvent(formEvent)">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="">
+            <input id="float-input" type="text" ngModel pInputText class="form-control" name="titre" [ngModel]="event.titre" >
+          </span>
+        </div>
+        <div class="">
+          <div class="p-field">
+            <p-calendar
+            name="date_range"
+            dateFormat="dd/mm/yy"
+            [showIcon]="true"
+            selectionMode="range"
+            [readonlyInput]="true"
+            inputId="range"
+            [ngModel]="date_range"
+            [showTime]="false"
+            ngModel></p-calendar>
+          </div>
+        </div>
+      </div>
+
+      <div class="row p-col-12">
+        <div class="col-md-8 mt-5">
+          <span class="">
+            <input id="float-input" [ngModel]="event.organisateur" type="text" pInputText class="form-control" name="organisateur" ngModel>
+          </span>
+        </div>
+      </div>
+
+      <div class="row p-col-12">
+        <div class="col-md-8 mt-5">
+          <span class="">
+            <textarea pInputTextarea autoResize="autoResize" [ngModel]="event.description" id="float-textarea" class="form-control" name="description" ngModel></textarea>
+
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-8 mt-3">
+        <p-button type="submit" label="Editer" required class="p-button-warning" [style]="{float: 'right'}"></p-button>
+      </div>
+
+    </form>
+  </div>
+</div>

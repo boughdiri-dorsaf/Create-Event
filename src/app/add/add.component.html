@@ -1,0 +1,51 @@
+<h3 class="text-center mt-3">Ajouter une evenement</h3>
+  <div class="col-md-8 mr-auto ml-auto">
+    <form class="mt-5" #formEvent="ngForm" (ngSubmit)="addEvent(formEvent)">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="">
+            <input id="float-input" type="text" pInputText class="form-control" name="titre" placeholder="titre" #t="ngModel" required ngModel>
+            <div *ngIf="t.invalid && t.touched" class="alert alert-danger" role="alert">
+              Le champ title est obligatoire!!!
+            </div>
+          </span>
+        </div>
+        <div class="">
+          <div class="p-field">
+            <p-calendar
+            name="date_range"
+            dateFormat="dd-mm-yy"
+            [showIcon]="true"
+            selectionMode="range"
+            [readonlyInput]="true"
+            inputId="range"
+            [ngModel]="date_range"
+            [showTime]="false"
+            ngModel></p-calendar>
+          </div>
+        </div>
+      </div>
+
+      <div class="row p-col-12">
+        <div class="col-md-8 mt-5">
+          <span class="">
+            <input id="float-input" placeholder="Organisateur" type="text" pInputText class="form-control" name="organisateur" required ngModel>
+          </span>
+        </div>
+      </div>
+
+      <div class="row p-col-12">
+        <div class="col-md-8 mt-5">
+          <span class="">
+            <textarea pInputTextarea placeholder="Description" required autoResize="autoResize" id="float-textarea" class="form-control" name="description" ngModel></textarea>
+
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-8 mt-3">
+        <p-button type="submit" [disabled]="!formEvent.form.valid" label="Success" required class="p-button-success" style="float: right;"></p-button>
+      </div>
+
+    </form>
+  </div>
